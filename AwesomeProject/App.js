@@ -6,46 +6,79 @@
  * @flow strict-local
  */
 
-import React from 'react';
+import React, { useState } from 'react';
 import {
   SafeAreaView,
   StyleSheet,
   ScrollView,
   View,
   Text,
-  StatusBar, TextInput, Button
+  StatusBar, TextInput, Button, Image
 } from 'react-native';
 
 
  import { createStackNavigator } from "@react-navigation/stack";
  import { NavigationContainer, useNavigation} from "@react-navigation/native";
  import { createBottomTabNavigator } from "@react-navigation/bottom-tabs"
-  import Icon from "react-native-vector-icons/Ionicons"
+  import Icon from "react-native-vector-icons/Ionicons";
+  import ImagePicker from 'react-native-image-crop-picker';
+
+
+
+  //PICK
+  
+
+ 
 
  ///BUTTON NAVIGATION WITHOUT NavigationContainer
-const Link = () => {
+const Link = (props) => {
  const navigation =  useNavigation();
+
+ function pickImage(){
+  ImagePicker.openPicker({
+    width: 300,
+    height: 400,
+    cropping: true
+  }).then(image => {
+    console.log(image);
+    props.path(image)
+
+  });
+}
 
   return( <Button 
     title="Click"
-    onPress={() => navigation.navigate("TweetsDetails",{ user: 'Dan Abramov' })}
+    onPress={() => pickImage()}
   />)
  
-}
+};
+
+
 
  /// NAVIGATION ADD NavigationContainer
-const Tweets = ({navigation}) => (
-  <View>
-    <Text>Tweets</Text>
-    <Button 
-      title="View Tweet"
-      onPress={() => navigation.navigate("TweetsDetails", { user: 'Dan Abramov' })}
-      
-      />
-    <Link />
-      
-  </View>
-);
+const Tweets = ({navigation}) => {
+      const [path, setpath] = useState("")
+      const pathHanler = (image) => {
+      console.log(image);
+      setpath(image.path)
+      }
+
+      console.log(path);
+  return(
+
+    <View>
+      <Text>Tweets</Text>
+      <Button 
+        title="View Tweet"
+        onPress={() => navigation.navigate("TweetsDetails", { user: 'Dan Abramov' })}
+        
+        />
+      <Link path={pathHanler}/>
+      <Image source={{uri: path}} style={{width: 200, height: 200}}/>
+        
+    </View>
+  )
+};
 
 const TweetsDetails = ({route}) => {
   
@@ -96,14 +129,20 @@ const TabNavigator = () => (
       inactiveTintColor: "black"
     }}
   >
-    <Tab.Screen name="Feed" component={Tweets}
+    <Tab.Screen name="Feed" component={StackNavigator}
       options={{
-        tabBarIcon: () => (
-          <Icon name="home-outline" size={30}/>
+        tabBarIcon: ({color, size}) => (
+          <Icon name="home-outline" size={size} color={color}/>
         )
       }}
     />
-    <Tab.Screen name="Account" component={Account}/>
+    <Tab.Screen name="Account" component={Account}
+     options={{
+      tabBarIcon: ({color, size}) => (
+        <Icon name="home-outline" size={size} color={color}/>
+      )
+    }}
+    />
   </Tab.Navigator>
 )
 const App = () => {
