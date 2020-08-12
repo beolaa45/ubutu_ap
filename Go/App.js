@@ -18,13 +18,19 @@ import Card from "./src/component/Card";
 import image from "./src/assets/jacket.jpg"
 import ListingDetalisScreen from './src/screens/ListingDetalisScreen';
 import MessageScreen from './src/screens/MessageScreen';
+import Icons from "./src/component/Icon";
+import ListItem from './src/component/ListItem';
+import AccountScreen from "./src/screens/AccountScreen"
+import ListingScreen from './src/screens/ListingScreen';
 
 
 
 const App = () => {
   
   return(
-   <MessageScreen />
+   <View>
+     <ListingScreen />
+   </View>
   )
 }
 
