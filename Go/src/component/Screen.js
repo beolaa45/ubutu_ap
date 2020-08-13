@@ -1,14 +1,17 @@
 import React from "react";
 
-import { StyleSheet, ScrollView } from "react-native";
+import { StyleSheet, ScrollView, View } from "react-native";
 import colors from "../config/colors";
 
 
 function Screen({ children, style }) {
   return (
-    <ScrollView style={[styles.screen, style]}>
+    <View style={[styles.screen, style]}>
+      <View>
       {children}
-    </ScrollView>
+      </View>
+      
+    </View>
   );
 }
 
@@ -17,7 +20,7 @@ const styles = StyleSheet.create({
     
     
     
-  },
+  }
 });
 
 export default Screen;
