@@ -1,7 +1,7 @@
 import React, { useState} from 'react'
 import { FlatList, View, SafeAreaView } from 'react-native';
 import ListItem from '../component/ListItem';
-
+import Screen from "../component/Screen"
 
 import ListItemDeleteAction from "../config/ListItemDeleteAction" 
 import colors from '../config/colors';
@@ -34,7 +34,7 @@ function MessageScreen() {
     }
    
     return (
-      
+      <Screen>
        <FlatList 
             data={messages}
             keyExtractor={messages => messages.id.toString()}
@@ -63,6 +63,7 @@ function MessageScreen() {
                 ])
             }}
        />
+       </Screen>
       
        
     )

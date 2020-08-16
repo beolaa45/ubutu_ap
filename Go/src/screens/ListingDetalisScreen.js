@@ -2,10 +2,11 @@ import React from 'react'
 import { View, Image, StyleSheet } from 'react-native'
 import AppText from '../component/AppText'
 import colors from '../config/colors'
-import ListItem from "../component/ListItem"
+import ListItem from "../component/ListItem";
+import Screen from "../component/Screen"
 function ListingDetalisScreen() {
     return (
-       <View>
+       <View style={styles.container}>
            <Image style={styles.image} source={require('../assets/jacket.jpg')}/>
             <View style={styles.detalisContainer}>
             <AppText style={styles.title}>Red jacket for sale</AppText>
@@ -23,8 +24,12 @@ function ListingDetalisScreen() {
 }
 
 const styles = StyleSheet.create({
+    container: {
+        width:"100%"
+    },
     detalisContainer: {
-        padding: 20
+        padding: 20,
+        width: "100%"
     },
     image: {
         width: "100%",

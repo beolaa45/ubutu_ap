@@ -27,6 +27,7 @@ import AppTextInput from './src/component/AppTextInput';
 import {Picker} from '@react-native-community/picker';
 import AppPicker from "./src/component/AppPicker"
 import LoginScreen from './src/screens/LoginScreen';
+import ListingEditScreen from './src/screens/ListingEditScreen';
  
 const categories  = [
   { label: "Furniture", value: 1},
@@ -46,7 +47,7 @@ const App = () => {
      alignItems:"center"
      
    }}>
-    <LoginScreen />
+    <ListingEditScreen />
     
    </View>
   )

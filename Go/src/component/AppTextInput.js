@@ -27,7 +27,9 @@ const styles = StyleSheet.create({
         fontSize: 18,
         color: colors.dark,
         width: "100%",
-        fontFamily: Platform.OS === "android" ? "Roboto" : "Avenir"
+        fontFamily: Platform.OS === "android" ? "Roboto" : "Avenir",
+        textAlignVertical: "top"
+        
     },
     icon: {
         marginRight: 10,

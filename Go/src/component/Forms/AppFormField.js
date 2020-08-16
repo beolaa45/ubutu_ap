@@ -1,9 +1,9 @@
 import React from 'react'
-import AppTextInput from "../component/AppTextInput";
+import AppTextInput from "../AppTextInput";
 import { useFormikContext } from "formik";
-import ErrorMessage from "../component/ErrorMessage"
-function AppFormField({name, ...otherProps}) {
-    const { setFieldTouched, handleChange, errors ,touched} = useFormikContext()
+import ErrorMessage from "./ErrorMessage"
+function AppFormField({name, width,...otherProps}) {
+    const { setFieldTouched, handleChange, errors ,touched, values} = useFormikContext()
     return (
         <>
             <AppTextInput 
@@ -16,6 +16,8 @@ function AppFormField({name, ...otherProps}) {
                         // secureTextEntry={true}
                         onBlur={() => setFieldTouched(name)}
                         onChangeText={handleChange(name)}
+                        width={width}
+                        value={values[name]}
                         {...otherProps}
 
                     />
@@ -23,5 +25,6 @@ function AppFormField({name, ...otherProps}) {
         </>
     )
 }
+
 
 export default AppFormField

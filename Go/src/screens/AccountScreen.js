@@ -23,11 +23,11 @@ const menuItem = [
 ]
 function AccountScreen() {
     return (
-        <Screen>
-            <View style={styles.container}>
+        <Screen style={styles.container}>
+            <View >
                 <ListItem 
                     title="Mosh Hamedani" 
-                    subTitle="mosh@gmail.com" 
+                    subTitle="mosasdfsdfsdfdh@gmail.com" 
                     image={require("../assets/mosh.jpg")}/>
             </View>
             <View style={styles.container}>
@@ -64,6 +64,7 @@ function AccountScreen() {
 const styles = StyleSheet.create({
     container: {
         marginVertical: 20,
+        width: "100%"
 
     }
 })

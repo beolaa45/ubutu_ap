@@ -42,6 +42,7 @@ const styles = StyleSheet.create({
     screen: {
         padding: 20,
         backgroundColor: colors.light,
+        width: "100%",
         
         flex: 1
         

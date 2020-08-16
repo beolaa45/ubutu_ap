@@ -9,12 +9,22 @@ import PickerItem from './PickerItem';
 
 
 
-function AppTextInput({ icon, placeholder, items, selectedItem, onSelectItem}) {
+function AppTextInput({ 
+    icon, 
+    placeholder, 
+    items, 
+    selectedItem, 
+    onSelectItem,
+    numberOfColumns = 1,
+    width = "100%",
+    onBlur,
+    PickerItemComponent = PickerItem,
+}) {
     const [modalVisible, setModalVisible] = useState(false)
     return (
         <>
-        <TouchableWithoutFeedback onPress={() => {console.log("tapp");setModalVisible(true)}}>
-       <View style={styles.container}>
+        <TouchableWithoutFeedback onPress={() => {console.log("tapp"); onBlur();setModalVisible(true)}}>
+       <View style={[styles.container, {width}]}>
            {icon && <Ionicons 
                         name={icon} 
                         size={20} 
@@ -31,9 +41,10 @@ function AppTextInput({ icon, placeholder, items, selectedItem, onSelectItem}) {
             <FlatList
                 data={items}
                 keyExtractor={item => item.value.toString()}
+                numColumns={numberOfColumns}
                 renderItem={({item}) => 
-                    <PickerItem 
-                        label={item.label} 
+                    <PickerItemComponent 
+                        item={item} 
                         onPress={() => {
                             onSelectItem(item);
                             setModalVisible(false)

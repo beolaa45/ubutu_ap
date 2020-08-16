@@ -18,7 +18,8 @@ function Screen({ children, style }) {
 const styles = StyleSheet.create({
   screen: {
     
-    
+    width: "100%",
+    flex: 1
     
   }
 });
