@@ -2,7 +2,7 @@
 import Icon from "react-native-vector-icons/Ionicons";
 import React from "react";
 import { View, StyleSheet } from 'react-native'
-import { Colors } from "react-native/Libraries/NewAppScreen";
+import colors from "./colors"
 import { TouchableWithoutFeedback } from "react-native-gesture-handler";
 function ListItemDeleteAction(onPress) {
     return (
@@ -14,7 +14,7 @@ function ListItemDeleteAction(onPress) {
               component: (
            
               <View style={styles.boxIcon}>
-                <Icon size={20} color={Colors.white} name="trash-outline"/>
+                <Icon size={20} color={colors.white} name="trash-outline"/>
               </View>
             
               ),

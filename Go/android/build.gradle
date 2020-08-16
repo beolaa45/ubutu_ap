@@ -33,5 +33,11 @@ allprojects {
         google()
         jcenter()
         maven { url 'https://www.jitpack.io' }
+
+         // ADD THIS CAMERA
+      maven { url 'https://maven.google.com' }
+ 
+      // ADD THIS CAMERA
+      maven { url "https://www.jitpack.io" }
     }
 }
