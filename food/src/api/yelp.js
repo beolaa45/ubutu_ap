@@ -1,8 +1,8 @@
 import axios from "axios";
 
 export default axios.create({
-    baseURL: "",
-    headers: {
-        Authorization: "Bearer " 
-    }
+    baseURL: "http://facebook.com",
+    // headers: {
+    //     Authorization: "Bearer "  
+    // }
 })
